@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <div class="page-header">
+        <h1>petRastreio
+            <small> | Caminho que seu animal percorreu nas ultimas horas!</small>
+        </h1>
+    </div>
+
+    <div class="form-group">
+        <ui-gmap-google-map zoom='map.zoom' center="map.center" options="map.options">
+            <ui-gmap-markers models="pontos" coords="'self'" icon="'icon'"  options="'options'" >
+                <ui-gmap-windows show="show">
+                    <div ng-non-bindable>{{label}}</div>
+                </ui-gmap-windows>
+            </ui-gmap-markers>
+
+            <ui-gmap-polyline ng-repeat="p in polylines" path="p.path" visible='p.visible' stroke="p.stroke"
+                              fit="true" icons='p.icons'>
+            </ui-gmap-polyline>
+        </ui-gmap-google-map>
+    </div>
+</div>
